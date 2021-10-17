@@ -1,0 +1,19 @@
+# validate textarea using summernote::
+
+$(document).ready(function(){
+ 		$("#description").summernote();
+}
+
+var hoR =$("#description").val().trim();
+	var hoR3 = hoR.replace("<p>", "").replace("</p>", "").replace(" ", "");
+	var re = /[0-9|a-z|A-Z]/;
+	
+	if($('#description').summernote('isEmpty')) {
+	    swal("Please enter description field");
+	    return false;
+	    e.preventDefault();
+	}else if (!(re).test(hoR3)) {
+		swal("Please enter at least one Alphabet or one Number in description");
+		return false;
+		e.preventDefault();
+	}
